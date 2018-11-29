@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { ThemeListComponent } from './themes/theme-list/theme-list.component';
 import { HqDashboardSubMenuComponent } from './core/hq-dashboard-sub-menu/hq-dashboard-sub-menu.component';
 import { ThemeSubMenuComponent } from './core/theme-sub-menu/theme-sub-menu.component';
 import { ThemeListByAdminResolver } from './_resolvers/theme-list-by-admin.resolver';
+import { ThemeFormComponent } from './themes/theme-form/theme-form.component';
 
 @NgModule({
   declarations: [
@@ -35,13 +37,16 @@ import { ThemeListByAdminResolver } from './_resolvers/theme-list-by-admin.resol
     ThemeListComponent,
     HqDashboardSubMenuComponent,
     ThemeSubMenuComponent,
+    ThemeFormComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     NgbModule.forRoot(),
     OAuthModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     ApiService,
