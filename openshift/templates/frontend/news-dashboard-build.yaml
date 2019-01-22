@@ -57,6 +57,7 @@ objects:
           env:
             - name: CI_BUILD
               value: "${CI_BUILD}"
+          incremental: true
       output:
         to:
           kind: ImageStreamTag
