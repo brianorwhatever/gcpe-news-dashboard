@@ -1,5 +1,8 @@
 #!/bin/bash
-
+echo 'saving artifacts!'
+pwd
+ls
+echo 'lets go'
 pushd /opt/app-root/src
 if [-d node_modules ]; then
     tar cf - node_modules
