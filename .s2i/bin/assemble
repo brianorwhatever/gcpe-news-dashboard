@@ -8,10 +8,9 @@
 set -e
 
 # restore build artifacts
-echo "restoring build artifacts"
-ls /tmp/s2i/artifacts
-if [ "$(ls /tmp/s2i/artifacts/ 2>/dev/null)" ]; then
-    mv /tmp/s2i/artifacts/* $HOME/.
+if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
+  echo "---> restoring build artifacts"
+  mv /tmp/artifacts/* /opt/app-root/src/.
 fi
 
 safeLogging () {

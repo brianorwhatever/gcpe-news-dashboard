@@ -1,5 +1,5 @@
 #!/bin/bash
-pushd ${HOME}>/dev/null
+pushd /opt/app-root/src>/dev/null
 
 if [ -d node_modules ]; then
     # node.js modules are saved for the next build.
