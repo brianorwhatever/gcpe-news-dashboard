@@ -38,6 +38,7 @@ import { AuthGuard } from './_guards/auth.guard';
 import { HasRoleDirective } from './_directives/hasRole.directive';
 import { AppConfigService } from './app-config.service';
 import { PluralizeKindPipe } from './_pipes/pluralize-kind.pipe';
+import { AlertComponent } from './core/alert/alert.component';
 
 const appInitializerFn = (appConfig: AppConfigService) => {
   return () => {
@@ -65,7 +66,8 @@ const appInitializerFn = (appConfig: AppConfigService) => {
     DeletePostConfirmationModalComponent,
     SocialMediaPostListComponent,
     HasRoleDirective,
-    PluralizeKindPipe
+    PluralizeKindPipe,
+    AlertComponent
   ],
   imports: [
     BrowserModule,
