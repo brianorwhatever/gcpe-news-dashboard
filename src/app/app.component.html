@@ -1,5 +1,5 @@
 <news-dashboard-navmenu></news-dashboard-navmenu>
-<main role="main">
+<main *ngIf="auth.loggedIn" role="main">
     <div class="jumbotron">
         <div class="container-fluid full-width">
             <app-alert></app-alert>

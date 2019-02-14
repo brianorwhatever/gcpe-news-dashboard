@@ -29,18 +29,17 @@ export class AuthService {
   }
 
   setAuthUser() {
-    this.configuration.accessToken = this.accessToken;
+    this.configuration.accessToken = this.oauthService.getAccessToken();
     const identityClaims = this.oauthService.getIdentityClaims() || {};
     let user = {
       user_roles: identityClaims['user_roles'] || [],
-      access_token: this.accessToken,
+      access_token: this.configuration.accessToken,
       name: identityClaims['name'] || ''
     } as User;
     this.currentUserSubject.next(user);
   }
 
-  get accessToken() { return this.oauthService.getAccessToken(); }
-  get loggedIn() { return this.oauthService.hasValidAccessToken(); }
+  get loggedIn() { return this.oauthService.hasValidAccessToken() }
   get identityClaims() { return this.oauthService.getIdentityClaims() || {}; }
 
   login() {
@@ -49,6 +48,10 @@ export class AuthService {
 
   logOut() {
     this.oauthService.logOut();
+  }
+
+  tryLogin() {
+    this.oauthService.loadDiscoveryDocumentAndTryLogin();
   }
 
   roleMatch(allowedRoles: Array<String>): boolean {
